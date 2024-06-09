@@ -1,7 +1,8 @@
 from tastypie.resources import ModelResource
-from api.models import Note
+from .models import Note
 
-class NoteResources(ModelResource):
+class NoteResource(ModelResource):
     class Meta:
-        queseryset = Note.object.all()
+        queryset = Note.objects.all()
         resource_name = 'note'
+        allowed_methods = ['get', 'post', 'put', 'delete']
